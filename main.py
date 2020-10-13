@@ -53,7 +53,7 @@ def calc(score, base, deadline):
             result.append('')
             continue
         if s > max(d.keys()):
-            result.append('')
+            result.append('=0')
             continue
         for k, v in sorted(d.items()):
             if s <= k:
@@ -80,11 +80,15 @@ def main():
         print(base)
         print(deadline)
 
+    fmt = ''
     with open(FLAGS.output, 'w') as f:
+        header = ['StudentNumber'] + base
         writer = csv.DictWriter(
-            f, fieldnames=['StudentNumber'] + base,
+            f, fieldnames=header,
             quoting=csv.QUOTE_MINIMAL, lineterminator=os.linesep)
         writer.writeheader()
+        if FLAGS.header:
+            print(','.join(map(str, header)))
         for m in members:
             if m in score.keys():
                 s = score[m]
@@ -96,6 +100,10 @@ def main():
             for i, b in enumerate(base):
                 entry[b] = data[i]
             writer.writerow(entry)
+            l = list()
+            for k in header:
+                l.append(entry[k])
+            print(','.join(l))
 
 
 if __name__ == '__main__':
@@ -117,6 +125,8 @@ if __name__ == '__main__':
                         help='The deadline csv paht')
     parser.add_argument('--output', type=str, default='output.csv',
                         help='The output path')
+    parser.add_argument('--header', action='store_true',
+                        help='On or off print standard output header')
 
     FLAGS, _ = parser.parse_known_args()
 
