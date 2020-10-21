@@ -9,3 +9,6 @@ python3 main.py --debug --members MEMBERCSV --score SCORECSV --deadline DEADLINE
 ```bash
 python3 main.py --members MEMBERCSV --score SCORECSV --deadline DEADLINECSV --header
 ```
+
+## Coded by
+- LuHa
