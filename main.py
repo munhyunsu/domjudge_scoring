@@ -39,7 +39,7 @@ def read_deadline(path):
         for row in reader:
             d = dict()
             for mag in magnitude:
-                key = int(row[str(mag)])
+                key = float(row[f'{mag:.02f}'])
                 d[key] = mag
             data.append(d)
             base.append(float(row['base']))
