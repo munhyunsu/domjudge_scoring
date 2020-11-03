@@ -82,7 +82,7 @@ def main():
 
     fmt = ''
     with open(FLAGS.output, 'w') as f:
-        header = ['StudentNumber'] + base
+        header = ['StudentNumber'] + list(map(str, range(1, len(base)+1)))
         writer = csv.DictWriter(
             f, fieldnames=header,
             quoting=csv.QUOTE_MINIMAL, lineterminator=os.linesep)
@@ -97,7 +97,7 @@ def main():
             data = calc(s, base, deadline)
             entry = dict()
             entry['StudentNumber'] = m
-            for i, b in enumerate(base):
+            for i, b in enumerate(header[1:]):
                 entry[b] = data[i]
             writer.writerow(entry)
             l = list()
