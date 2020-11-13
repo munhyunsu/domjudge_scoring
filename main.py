@@ -118,7 +118,8 @@ if __name__ == '__main__':
     parser.add_argument('--debug', action='store_true',
                         help='On or off debug message')
     parser.add_argument('--members', type=str, required=True,
-                        help='The member csv path')
+                        help=('The member csv path\n'
+                              ' * with header: "StudentNumber"'))
     parser.add_argument('--score', type=str, required=True,
                         help='The exported score path from domjudge')
     parser.add_argument('--deadline', type=str, required=True,
