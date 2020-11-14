@@ -123,7 +123,8 @@ if __name__ == '__main__':
     parser.add_argument('--score', type=str, required=True,
                         help='The exported score path from domjudge')
     parser.add_argument('--deadline', type=str, required=True,
-                        help='The deadline csv paht')
+                        help=('The deadline csv paht\n'
+                              ' * with header: score,magnitude,...'))
     parser.add_argument('--output', type=str, default='output.csv',
                         help='The output path')
     parser.add_argument('--header', action='store_true',
