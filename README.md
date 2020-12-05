@@ -11,4 +11,5 @@ python3 main.py --members MEMBERCSV --score SCORECSV --deadline DEADLINECSV --he
 ```
 
 ## Coded by
-- LuHa
+- LuHa (munhyunsu@gmail.com)
+
