@@ -1,6 +1,8 @@
 import os
 import csv
 
+import pandas as pd
+
 FLAGS = _ = None
 DEBUG = False
 
